@@ -1,1 +1,10 @@
+#root {
+  margin: -8px;
+}
 
+input {
+  border-radius: 30px;
+  border: 1px solid;
+  padding: 8px 15px;
+  font-size: large;
+}

@@ -1,21 +1,21 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import Home from "@/pages/Home";
+// import Welcome from "@/pages/Welcome"
+// import NotFound from "@/pages/NotFound"
+import Router from "./router"
 
 export function App() {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <Router />
     </div>
-  );
+  )
 }
 
-export function WrappedApp() {
-  return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-}
+// export function WrappedApp() {
+//   return (
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>
+//   )
+// }
