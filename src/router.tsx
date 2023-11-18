@@ -4,6 +4,9 @@ import NotFound from "./pages/NotFound"
 import Welcome from "./pages/Welcome"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import { Home } from "."
+import Dashboard from "./pages/Dashboard"
+import Profile from "./pages/Profile"
 
 const router = createBrowserRouter([
   {
@@ -11,8 +14,22 @@ const router = createBrowserRouter([
     element: <NotFound />,
   },
   {
-    path: "/",
+    path: "",
     element: <Welcome />,
+  },
+  {
+    path: "/",
+    element: <Home />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+    ],
   },
   {
     path: "/login",

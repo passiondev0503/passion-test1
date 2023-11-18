@@ -1,8 +1,10 @@
+import Header from "@/components/Header"
 import "./style.css"
 
 const Register = () => {
   return (
-    <>
+    <div className="register">
+      <Header />
       <div
         style={{
           display: "flex",
@@ -13,7 +15,7 @@ const Register = () => {
         }}
       >
         <div className="registerContainer">
-          <div className="header">
+          <div className="cardHeader">
             <h1>Sign Up</h1>
           </div>
           <div className="formContainer">
@@ -43,7 +45,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

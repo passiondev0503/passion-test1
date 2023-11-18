@@ -1,8 +1,10 @@
+import Header from "@/components/Header"
 import "./style.css"
 
 const Login = () => {
   return (
-    <>
+    <div className="login">
+      <Header />
       <div
         style={{
           display: "flex",
@@ -35,7 +37,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
