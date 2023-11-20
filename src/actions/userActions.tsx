@@ -25,6 +25,22 @@ export const logout = (logOutSuccess: {
   return logOutSuccess(true)
 }
 
+export const register = (
+  userName: string,
+  Email: string,
+  password: string,
+  setRegisterSuccess: { (value: SetStateAction<boolean>): void; (arg0: boolean): any }
+) =>
+  axios
+    .post("https://fakestoreapi.com/users", {
+      username: userName,
+      password: password,
+      email: Email,
+    })
+    .then((res) => {
+      return setRegisterSuccess(true)
+    })
+
 export const GetAllProducts = () =>
   axios.get(`https://fakestoreapi.com/products`).then((res) => console.log(res))
 
