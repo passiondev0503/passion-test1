@@ -5,7 +5,6 @@ const Welcome = () => {
   return (
     <div className="">
       <Header />
-      {/* <Outlet /> */}
     </div>
   )
 }

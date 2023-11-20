@@ -1,18 +1,17 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-
-import NotFound from "./pages/NotFound"
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import { Home } from "."
-import Dashboard from "./pages/Dashboard"
 import Profile from "./pages/Profile"
 import Product from "./pages/Product"
 import ProductDetail from "./pages/Product/ProductDetail"
 
+const isAuthenticated = localStorage.getItem("userInfo")
+
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <NotFound />,
+    element: <Navigate to="/login" />,
   },
   {
     path: "",
@@ -20,12 +19,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Home />,
+    element: isAuthenticated ? <Home /> : <Navigate to="/login" />,
     children: [
-      {
-        path: "/dashboard",
-        element: <Dashboard />,
-      },
       {
         path: "/profile",
         element: <Profile />,
