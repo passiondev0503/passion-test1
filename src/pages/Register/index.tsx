@@ -20,19 +20,27 @@ const Register = () => {
           </div>
           <div className="formContainer">
             <div className="inputContainer">
-              <label htmlFor="username">UserName</label>
+              <label className="label" htmlFor="username">
+                UserName
+              </label>
               <input type="text" id="username" placeholder=" " />
             </div>
             <div className="inputContainer">
-              <label htmlFor="email">Email</label>
+              <label className="label" htmlFor="email">
+                Email
+              </label>
               <input type="text" id="email" placeholder=" " />
             </div>
             <div className="inputContainer">
-              <label htmlFor="password">Password</label>
+              <label className="label" htmlFor="password">
+                Password
+              </label>
               <input type="password" id="password" placeholder=" " />
             </div>
             <div className="inputContainer">
-              <label htmlFor="repassword">Password</label>
+              <label className="label" htmlFor="repassword">
+                Password
+              </label>
               <input type="password" id="repassword" placeholder=" " />
             </div>
           </div>

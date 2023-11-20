@@ -34,7 +34,7 @@ const SideBar = () => {
           <a id="side-title" href="https://codepen.io" target="_blank">
             C<i className="fab fa-codepen"></i>DEPEN
           </a>
-          <label htmlFor="side-toggle">
+          <label className="label"htmlFor="side-toggle">
             <span id="side-toggle-burger"></span>
           </label>
           <hr />
@@ -72,7 +72,7 @@ const SideBar = () => {
               </a>
               <span id="side-footer-subtitle">Admin</span>
             </div>
-            <label htmlFor="side-footer-toggle">
+            <label className="label"htmlFor="side-footer-toggle">
               <i className="fas fa-caret-up"></i>
             </label>
           </div>

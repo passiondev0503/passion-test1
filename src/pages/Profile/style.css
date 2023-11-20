@@ -9,14 +9,30 @@
   border: 1px solid;
 }
 
+.tab {
+  display: flex;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background: #ededed;
+  padding: 10px 10px 0px;
+  gap: 4px;
+}
+
 .list {
   padding: 15px 20px;
-  font-size: large;
+  font-size: 1.4rem;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
 
 .list:hover {
-  background-color: #f4c73e;
-  border-radius: 10px;
   cursor: pointer;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
