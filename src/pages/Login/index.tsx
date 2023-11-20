@@ -20,7 +20,7 @@ const Login = () => {
   useEffect(() => {
     if (loginsucess) {
       toast.success("Login Success!")
-      navigate("/dashboard")
+      navigate("/product")
     }
   }, [loginsucess])
 

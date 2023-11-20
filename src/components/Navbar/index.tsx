@@ -3,10 +3,12 @@ import { logout } from "@/actions/userActions"
 import { toast } from "react-toastify"
 import "./style.css"
 import { useNavigate } from "react-router-dom"
+import IconList from "../Icon"
 
 const Navbar = () => {
   const navigate = useNavigate()
   const [logoutsuccess, logOutSuccess] = useState(false)
+  const url = window.location.pathname
 
   const Logout = (e: any) => {
     e.preventDefault()
@@ -22,8 +24,11 @@ const Navbar = () => {
 
   return (
     <div className="nav_header">
-      <p>URL</p>
-      <button onClick={Logout}>Sign Out</button>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="logo">T</div>
+        <p style={{ color: "black", fontSize: "16px" }}>{url}</p>
+      </div>
+      <button onClick={Logout}>{IconList.logoutIcon}Sign Out</button>
     </div>
   )
 }
