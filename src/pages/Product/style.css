@@ -72,6 +72,14 @@
   margin-bottom: 20px;
 }
 
+.spin_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
 @media only screen and (min-width: 775px) {
   .product_detail {
     flex-direction: row;

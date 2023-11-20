@@ -7,15 +7,21 @@ import "react-phone-input-2/lib/style.css"
 import IconList from "@/components/Icon"
 import "./style.css"
 
+type states = {
+  state: string
+  name: string
+}
+
 const Profile = () => {
   const [tab, setTab] = useState("profile")
   const handleTab = (list: string) => {
     setTab(list)
   }
   const [telPhone, setTelPhone] = useState("")
-  const [countries, setCountries]: any = useState()
-  const [cities, setCities] = useState()
-  const [states, setStates] = useState()
+  const [countries, setCountries] = useState<any[] | null>(null)
+  const [cities, setCities] = useState<any[] | null>(null)
+  const [states, setStates] = useState<states | null>()
+  const [image, setImage] = useState("/photo.jpg")
 
   const [modify, setModify] = useState(false)
 
@@ -25,8 +31,24 @@ const Profile = () => {
   }
 
   const handleCities = async (country: string, state: string) => {
-    const data: any = State.getStateByCodeAndCountry(state, country)
-    setStates(data)
+    console.log(country, state)
+    if (country && state) {
+      const data: any = State.getStateByCodeAndCountry(state, country)
+      setStates(data)
+    } else {
+      console.error("Country or State is null")
+    }
+  }
+
+  const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImage(reader.result as string)
+      }
+      reader.readAsDataURL(file)
+    }
   }
 
   const handlePhone = (phone: any) => {
@@ -89,9 +111,20 @@ const Profile = () => {
             <>
               <div className="card-content" style={{ padding: "10px 30px 30px 30px" }}>
                 <label htmlFor="photo" style={{ width: "fit-content" }}>
-                  <img src="/photo.jpg" style={{ userSelect: "none" }} />
+                  <img
+                    src={image}
+                    style={modify ? {} : { opacity: "0.8", userSelect: "none" }}
+                    className="photo"
+                  />
                 </label>
-                <input id="photo" type="file" hidden />
+                <input
+                  id="photo"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleUpload}
+                  hidden
+                  disabled={!modify}
+                />
                 <div className="inputContainer">
                   <label className="label" htmlFor="name">
                     {IconList.personProfileIcon}Name
@@ -101,7 +134,7 @@ const Profile = () => {
                     id="name"
                     value="Jacob Kevin"
                     placeholder=" "
-                    disabled={modify ? false : true}
+                    disabled={!modify}
                   />
                 </div>
                 <div className="inputContainer">
@@ -113,7 +146,7 @@ const Profile = () => {
                     id="email"
                     value={"john@gmail.com"}
                     placeholder=" "
-                    disabled={modify ? false : true}
+                    disabled={!modify}
                   />
                 </div>
                 <div className="row-2">
@@ -124,7 +157,7 @@ const Profile = () => {
                     <select
                       id="country"
                       onChange={(e) => handleCountry(e.target.value)}
-                      disabled={modify ? false : true}
+                      disabled={!modify}
                     >
                       {countries?.map((item: any, index: any) => {
                         return (
@@ -136,16 +169,16 @@ const Profile = () => {
                     </select>
                   </div>
                   <div className="inputContainer">
-                    <label className="label" htmlFor="states">
-                      {IconList.phoneIcon}State
+                    <label className="label" htmlFor="city">
+                      {IconList.phoneIcon}City
                     </label>
                     <select
-                      id="states"
-                      disabled={modify ? false : true}
+                      id="city"
+                      disabled={!modify}
                       onChange={(e) =>
                         handleCities(
-                          e.target.options[e.target.selectedIndex].dataset.country,
-                          e.target.options[e.target.selectedIndex].dataset.state
+                          e.target.options[e.target.selectedIndex].dataset?.country ?? "",
+                          e.target.options[e.target.selectedIndex].dataset?.state ?? ""
                         )
                       }
                     >
@@ -175,7 +208,7 @@ const Profile = () => {
                       id="state"
                       placeholder=" "
                       value={states ? states.name : ""}
-                      disabled={modify ? false : true}
+                      disabled={!modify}
                     />
                   </div>
                   <div className="inputContainer">
@@ -187,14 +220,16 @@ const Profile = () => {
                       value={telPhone}
                       onChange={(event) => handlePhone(event)}
                       inputStyle={{ width: "100%", marginTop: "4px !important" }}
-                      disabled={modify ? false : true}
+                      disabled={!modify}
                     />
                   </div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "end", gap: "10px" }}>
                   {modify ? (
                     <>
-                      <button style={{ fontSize: "14px" }}>{IconList.saveIcon}Save</button>
+                      <button style={{ fontSize: "14px" }} onClick={() => setModify(false)}>
+                        {IconList.saveIcon}Save
+                      </button>
                       <button
                         onClick={() => setModify(false)}
                         style={{ fontSize: "14px", background: "#f34646" }}

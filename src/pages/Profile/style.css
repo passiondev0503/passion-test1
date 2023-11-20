@@ -9,6 +9,12 @@
   border: 1px solid;
 }
 
+.photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
 .tab {
   display: flex;
   border-top-right-radius: 10px;

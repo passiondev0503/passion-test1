@@ -5,14 +5,17 @@ import "./style.css"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import Spinner from "@/components/Spinner"
 
 const Login = () => {
   const [username, setUserName] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const [loginsucess, loginSuccess] = useState<boolean>(false)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const submitHandler = (e: any) => {
+    setLoading(true)
     e.preventDefault()
     login(username, password, loginSuccess)
   }
@@ -21,6 +24,7 @@ const Login = () => {
     if (loginsucess) {
       toast.success("Login Success!")
       navigate("/product")
+      setLoading(false)
     }
   }, [loginsucess])
 
@@ -64,6 +68,11 @@ const Login = () => {
           </div>
           <div className="footer">
             <button type="button" onClick={submitHandler}>
+              {loading ? (
+                <div className="small_spinner" style={{ width: "10px", height: "10px" }}></div>
+              ) : (
+                <></>
+              )}
               Sign In
             </button>
             <p style={{ fontSize: "20px" }}>
