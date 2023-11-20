@@ -7,9 +7,9 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 const Login = () => {
-  const [username, setUserName] = useState("")
-  const [password, setPassword] = useState("")
-  const [loginsucess, loginSuccess] = useState(false)
+  const [username, setUserName] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+  const [loginsucess, loginSuccess] = useState<boolean>(false)
   const navigate = useNavigate()
 
   const submitHandler = (e: any) => {
