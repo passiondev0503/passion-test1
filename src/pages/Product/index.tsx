@@ -1,4 +1,4 @@
-import { GetAllCategories, GetAllProducts, GetInCategory } from "@/actions/userActions"
+import { GetAllCategories, GetAllProducts, GetInCategory } from "@/actions/productActions"
 import { useState, useEffect } from "react"
 
 import "./style.css"
