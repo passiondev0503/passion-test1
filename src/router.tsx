@@ -7,6 +7,8 @@ import Register from "./pages/Register"
 import { Home } from "."
 import Dashboard from "./pages/Dashboard"
 import Profile from "./pages/Profile"
+import Product from "./pages/Product"
+import ProductDetail from "./pages/Product/ProductDetail"
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "",
-    element: <Welcome />,
+    element: <Login />,
   },
   {
     path: "/",
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/product",
+        element: <Product />,
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetail />,
       },
     ],
   },

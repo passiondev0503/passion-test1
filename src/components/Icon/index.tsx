@@ -137,6 +137,102 @@ const IconList = {
       <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
     </svg>
   ),
+  emptyStarIcon: (
+    <svg
+      className="h-8 w-8 text-yellow-500"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {" "}
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  ),
+  fullStarIcon: (
+    <svg
+      className="h-8 w-8 text-yellow-500"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {" "}
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  ),
+
+  backIcon: (
+    <svg
+      className="h-8 w-8 text-yellow-500"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {" "}
+      <path stroke="none" d="M0 0h24v24H0z" />{" "}
+      <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" />
+    </svg>
+  ),
+
+  arrowLeftIcon: (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {" "}
+      <path stroke="none" d="M0 0h24v24H0z" /> <polyline points="11 7 6 12 11 17" />{" "}
+      <polyline points="17 7 12 12 17 17" />
+    </svg>
+  ),
+  arrowRightIcon: (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {" "}
+      <polyline points="13 17 18 12 13 7" /> <polyline points="6 17 11 12 6 7" />
+    </svg>
+  ),
+
+  logoutIcon: (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {" "}
+      <path stroke="none" d="M0 0h24v24H0z" />{" "}
+      <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />{" "}
+      <path d="M7 12h14l-3 -3m0 6l3 -3" />
+    </svg>
+  ),
 }
 
 export default IconList

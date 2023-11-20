@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from "react"
 
-import "./style.css"
-import Toast from "@/components/Notification"
-
 import PhoneInput from "react-phone-input-2"
 import { Country, State, City } from "country-state-city"
 import "react-phone-input-2/lib/style.css"
 
 import IconList from "@/components/Icon"
+import "./style.css"
 
 const Profile = () => {
   const [tab, setTab] = useState("profile")
   const handleTab = (list: string) => {
     setTab(list)
   }
-  const [showToast, setShowToast] = useState(false)
   const [telPhone, setTelPhone] = useState("")
   const [countries, setCountries]: any = useState()
   const [cities, setCities] = useState()
   const [states, setStates] = useState()
 
   const [modify, setModify] = useState(false)
-
-  const notify = () => setShowToast(!showToast)
 
   const handleCountry = async (data: string) => {
     const city: any = City.getCitiesOfCountry(data)
@@ -34,7 +29,6 @@ const Profile = () => {
     setStates(data)
   }
 
-  useEffect(() => {}, [showToast])
   const handlePhone = (phone: any) => {
     setTelPhone(phone)
   }
@@ -52,9 +46,7 @@ const Profile = () => {
 
   return (
     <>
-      {/* <div style={{ display: "flex", gap: "10px" }}> */}
       <div>
-        <Toast message="Wow so easy!" showToast={true} />
         <div className="tab">
           <div
             className="list"
@@ -129,13 +121,7 @@ const Profile = () => {
                     disabled={modify ? false : true}
                   />
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    justifyContent: "space-between",
-                  }}
-                >
+                <div className="row-2">
                   <div className="inputContainer">
                     <label className="label" htmlFor="country">
                       {IconList.phoneIcon}Country
@@ -184,13 +170,7 @@ const Profile = () => {
                     </select>
                   </div>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    justifyContent: "space-between",
-                  }}
-                >
+                <div className="row-2">
                   <div className="inputContainer">
                     <label className="label" htmlFor="state">
                       {IconList.personProfileIcon}State/Province

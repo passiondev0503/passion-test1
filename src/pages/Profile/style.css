@@ -36,3 +36,16 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.row-2 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 560px) {
+  .row-2 {
+    flex-direction: column;
+  }
+}

@@ -39,7 +39,7 @@ const Register = () => {
             </div>
             <div className="inputContainer">
               <label className="label" htmlFor="repassword">
-                Password
+                Confirm Password
               </label>
               <input type="password" id="repassword" placeholder=" " />
             </div>

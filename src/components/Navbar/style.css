@@ -1,4 +1,8 @@
 .nav_header {
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
   display: flex !important;
   justify-content: space-between;
   position: sticky;
@@ -18,11 +22,27 @@
   backdrop-filter: blur(2px) saturate(200%);
 }
 
-@media (min-width: 1024px) {
+.logo {
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  background-color: #ff8100;
+  margin-right: 10px;
+}
+
+/* @media (min-width: 1024px) {
   .nav_header {
     padding-top: 1rem;
     padding-right: 2rem;
     padding-bottom: 1rem;
     padding-left: 2rem;
   }
-}
+} */
