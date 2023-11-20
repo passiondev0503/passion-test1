@@ -5,7 +5,6 @@ const Header = () => {
     <>
       <div className="navbar">
         <div className="header_logo">T</div>
-        <button>Login</button>
       </div>
     </>
   )

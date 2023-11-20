@@ -110,11 +110,6 @@ const Profile = () => {
           {tab === "profile" ? (
             <>
               <div className="card-content" style={{ padding: "10px 30px 30px 30px" }}>
-                {/* <h1
-                  style={{ lineHeight: "10px", display: "flex", alignItems: "center", gap: "4px" }}
-                >
-                  {IconList.humanIcon}Profile
-                </h1> */}
                 <label htmlFor="photo" style={{ width: "fit-content" }}>
                   <img
                     src={image}

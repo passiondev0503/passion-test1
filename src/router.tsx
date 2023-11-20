@@ -1,42 +1,33 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-
-import NotFound from "./pages/NotFound"
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import { Home } from "."
-import Dashboard from "./pages/Dashboard"
 import Profile from "./pages/Profile"
 import Product from "./pages/Product"
 import ProductDetail from "./pages/Product/ProductDetail"
 
+const isAuthenticated = localStorage.getItem("userInfo")
+
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <NotFound />,
-  },
-  {
-    path: "",
-    element: <Login />,
+    element: <Navigate to="/login" />,
   },
   {
     path: "/",
     element: <Home />,
     children: [
       {
-        path: "/dashboard",
-        element: <Dashboard />,
-      },
-      {
         path: "/profile",
-        element: <Profile />,
+        element: isAuthenticated ? <Profile /> : <Navigate to="/login" />,
       },
       {
         path: "/product",
-        element: <Product />,
+        element: isAuthenticated ? <Product /> : <Navigate to="/login" />,
       },
       {
         path: "/product/:id",
-        element: <ProductDetail />,
+        element: isAuthenticated ? <ProductDetail /> : <Navigate to="/login" />,
       },
     ],
   },
