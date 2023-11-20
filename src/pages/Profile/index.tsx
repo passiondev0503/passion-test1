@@ -21,6 +21,7 @@ const Profile = () => {
   const [countries, setCountries] = useState<any[] | null>(null)
   const [cities, setCities] = useState<any[] | null>(null)
   const [states, setStates] = useState<states | null>()
+  const [image, setImage] = useState("/photo.jpg")
 
   const [modify, setModify] = useState(false)
 
@@ -36,6 +37,17 @@ const Profile = () => {
       setStates(data)
     } else {
       console.error("Country or State is null")
+    }
+  }
+
+  const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImage(reader.result as string)
+      }
+      reader.readAsDataURL(file)
     }
   }
 
@@ -104,9 +116,20 @@ const Profile = () => {
                   {IconList.humanIcon}Profile
                 </h1> */}
                 <label htmlFor="photo" style={{ width: "fit-content" }}>
-                  <img src="/photo.jpg" style={{ userSelect: "none" }} />
+                  <img
+                    src={image}
+                    style={modify ? {} : { opacity: "0.8", userSelect: "none" }}
+                    className="photo"
+                  />
                 </label>
-                <input id="photo" type="file" hidden />
+                <input
+                  id="photo"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleUpload}
+                  hidden
+                  disabled={!modify}
+                />
                 <div className="inputContainer">
                   <label className="label" htmlFor="name">
                     {IconList.personProfileIcon}Name
@@ -209,7 +232,9 @@ const Profile = () => {
                 <div style={{ display: "flex", justifyContent: "end", gap: "10px" }}>
                   {modify ? (
                     <>
-                      <button style={{ fontSize: "14px" }}>{IconList.saveIcon}Save</button>
+                      <button style={{ fontSize: "14px" }} onClick={() => setModify(false)}>
+                        {IconList.saveIcon}Save
+                      </button>
                       <button
                         onClick={() => setModify(false)}
                         style={{ fontSize: "14px", background: "#f34646" }}

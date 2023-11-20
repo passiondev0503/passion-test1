@@ -2,13 +2,16 @@ import { GetAllCategories, GetAllProducts, GetInCategory } from "@/actions/produ
 import { useState, useEffect } from "react"
 
 import "./style.css"
+import Spinner from "@/components/Spinner"
 
 const Product = () => {
   const [products, setProducts] = useState<any[]>([])
   const [categories, setCategories] = useState([])
   const [search, setSearch] = useState<string>("")
+  const [loading, setLoading] = useState(true)
 
   const handleCategory = async (data: string) => {
+    setLoading(true)
     let list
     if (data !== "") {
       list = await GetInCategory(data)
@@ -16,6 +19,7 @@ const Product = () => {
       list = await GetAllProducts()
     }
     setProducts(list)
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -26,6 +30,7 @@ const Product = () => {
     const handleAllProducts = async () => {
       const list: any[] = await GetAllProducts()
       setProducts(list)
+      setLoading(false)
     }
     handleAllCategory()
     handleAllProducts()
@@ -66,34 +71,40 @@ const Product = () => {
             </select>
           </div>
         </div>
-        <div className="grid-container">
-          {products &&
-            products?.map((item, index) => {
-              const lowerTitle = item?.title.toLowerCase()
-              const lowerDescription = item?.description.toLowerCase()
-              if (lowerTitle.includes(search) || lowerDescription.includes(search))
-                return (
-                  <div className="products" key={index}>
-                    <img src={item.image} alt={item?.title} className="product" />
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        fontWeight: "700",
-                        fontSize: "16px",
-                      }}
-                    >
-                      <p className="product-title">{item?.title}</p>
-                      <p>${item?.price}</p>
+        {!loading ? (
+          <div className="grid-container">
+            {products &&
+              products?.map((item, index) => {
+                const lowerTitle = item?.title.toLowerCase()
+                const lowerDescription = item?.description.toLowerCase()
+                if (lowerTitle.includes(search) || lowerDescription.includes(search))
+                  return (
+                    <div className="products" key={index}>
+                      <img src={item.image} alt={item?.title} className="product" />
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          fontWeight: "700",
+                          fontSize: "16px",
+                        }}
+                      >
+                        <p className="product-title">{item?.title}</p>
+                        <p>${item?.price}</p>
+                      </div>
+                      <p className="description">{item?.description}</p>
+                      <a href={`/product/${item.id}`}>
+                        <button style={{ width: "100%" }}>More Details</button>
+                      </a>
                     </div>
-                    <p className="description">{item?.description}</p>
-                    <a href={`/product/${item.id}`}>
-                      <button style={{ width: "100%" }}>More Details</button>
-                    </a>
-                  </div>
-                )
-            })}
-        </div>
+                  )
+              })}
+          </div>
+        ) : (
+          <div className="spin_container">
+            <Spinner />
+          </div>
+        )}
       </div>
     </>
   )

@@ -233,6 +233,40 @@ const IconList = {
       <path d="M7 12h14l-3 -3m0 6l3 -3" />
     </svg>
   ),
+  uploadIcon: (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {" "}
+      <path stroke="none" d="M0 0h24v24H0z" />{" "}
+      <path d="M7 18a4.6 4.4 0 0 1 0 -9h0a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1" />{" "}
+      <polyline points="9 15 12 12 15 15" /> <line x1="12" y1="12" x2="12" y2="21" />
+    </svg>
+  ),
+  imagecancelIcon: (
+    <svg
+      className="h-3 w-3 text-black"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {" "}
+      <path stroke="none" d="M0 0h24v24H0z" /> <line x1="18" y1="6" x2="6" y2="18" />{" "}
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  ),
 }
 
 export default IconList
