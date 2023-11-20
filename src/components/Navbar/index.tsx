@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { logout } from "@/actions/userActions"
+import { toast } from "react-toastify"
 import "./style.css"
 import { useNavigate } from "react-router-dom"
 
@@ -13,7 +14,10 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    if (logoutsuccess) navigate("/login")
+    if (logoutsuccess) {
+      navigate("/login")
+      toast.success("Logout Success!")
+    }
   }, [logoutsuccess])
 
   return (

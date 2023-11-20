@@ -17,7 +17,7 @@ const Profile = () => {
   return (
     <>
       <div style={{ display: "flex", gap: "10px" }}>
-        <Toast message="Wow so easy!" showToast={true} />
+        <Toast />
         <div className="card" style={{ padding: "10px" }}>
           <div className="list" onClick={() => handleTab("profile")}>
             Profile
