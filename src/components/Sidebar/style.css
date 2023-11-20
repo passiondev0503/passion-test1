@@ -1,0 +1,155 @@
+:root {
+  --background: #9c88ff;
+  --sidebar-width: 256px;
+  --sidebar-width-min: 80px;
+  /* --sidebar-dark-primary: #18283b; */
+  --sidebar-dark-primary: #ffffff;
+  --sidebar-dark-secondary: #2c3e50;
+  --sidebar-light-primary: #f5f6fa;
+  --sidebar-light-secondary: #8392a5;
+}
+
+.sidebar {
+  background-color: white;
+  height: 100vh;
+  width: 250px;
+  /* padding: 15px 30px 35px 30px; */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar_header {
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar .menu {
+  height: 100%;
+}
+
+.layout {
+  z-index: 1;
+}
+
+.sidebar {
+  color: #7d84ab;
+  overflow-x: hidden !important;
+  position: relative;
+}
+.sidebar .sidebar-layout {
+  height: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* background-color: #0c1e35; */
+  z-index: 2;
+}
+.sidebar .sidebar-layout .sidebar-header {
+  height: 100px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.sidebar .sidebar-layout .sidebar-header > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sidebar .sidebar-layout .sidebar-content {
+  flex-grow: 1;
+  padding: 10px 0;
+}
+
+.layout .sidebar .menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  border-left: 4px solid white;
+}
+
+.layout .sidebar .menu .menu-item:hover {
+  background-color: #e9e9e9;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.layout .sidebar .menu .menu-item a {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
+  color: #7d84ab;
+}
+
+.layout .sidebar .menu .menu-item a:hover {
+  color: black;
+}
+
+@media (max-width: 576px) {
+  #btn-collapse {
+    display: none;
+  }
+}
+.layout .sidebar .pro-sidebar-logo {
+  display: flex;
+  align-items: center;
+}
+.layout .sidebar .pro-sidebar-logo > div {
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  background-color: #ff8100;
+  margin-right: 10px;
+}
+.layout .sidebar .pro-sidebar-logo > h5 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  line-height: 30px;
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+.layout .sidebar .footer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 20px 0;
+  border-radius: 8px;
+  width: 180px;
+  min-width: 190px;
+  margin: 0 auto;
+  background-color: #162d4a;
+}
+.layout .sidebar .footer-box img.react-logo {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.sidebar-footer {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9e7e7;
+  cursor: pointer;
+}

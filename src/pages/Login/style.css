@@ -1,0 +1,57 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  width: 24em;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7em;
+  background: linear-gradient(to right, #d4b65e, #d4b65e);
+  margin: -1em 1em 1em 1em;
+  border-radius: 1em;
+  color: #ffffff;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.footer p {
+  font-size: 0.8em;
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer button {
+  width: 100%;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #f4c73e;
+  font-weight: 700;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
