@@ -1,16 +1,22 @@
-# Vite React + Typescript
+# React Test App (React, Vite, Typescript, EsLint)
 
-This is a React project bootstrapped with `npm create vite@latest`.
+This is a test project for contract.
 
 ## Features
 
-This is a very simple starter template and it contains:
+This is a very test project:
 
 - React + Typescript with Vite.
 - Eslint + Prettier for code style.
-- Vitest for unit testing.
-- Tailwind CSS for UI.
-- Simple cleaned starter folder structure.
+- Pure CSS for UI.
+
+## Functionalities
+
+- SignIn, SignUp function. (UserName: mor*2314, Password: 83r5^*) Used Fake Auth API
+
+- Products function. (Products list, Product search, Product detail, Category filter, etc) Used Fake Products API
+
+- Profile function. (Country selector, Avatar selector, etc)
 
 ## Getting Started
 
@@ -20,14 +26,16 @@ install dependencies:
 npm install
 ```
 
+#### Add Enviroment file (.env)
+
+`.env` file
+
+```bash
+FAKE_STORE_API=https://fakestoreapi.com
+```
+
 run the development server:
 
 ```bash
 npm run dev
-```
-
-run all tests:
-
-```bash
-npm test
 ```
