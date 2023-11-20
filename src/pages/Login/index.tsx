@@ -3,11 +3,13 @@ import { login } from "@/actions/userActions"
 import Header from "@/components/Header"
 import "./style.css"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Login = () => {
-  const [username, setUserName] = useState("")
-  const [password, setPassword] = useState("")
-  const [loginsucess, loginSuccess] = useState(false)
+  const [username, setUserName] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+  const [loginsucess, loginSuccess] = useState<boolean>(false)
   const navigate = useNavigate()
 
   const submitHandler = (e: any) => {
@@ -16,7 +18,10 @@ const Login = () => {
   }
 
   useEffect(() => {
-    if (loginsucess) navigate("/dashboard")
+    if (loginsucess) {
+      toast.success("Login Success!")
+      navigate("/product")
+    }
   }, [loginsucess])
 
   return (
@@ -37,7 +42,7 @@ const Login = () => {
           </div>
           <div className="formContainer">
             <div className="inputContainer">
-              <label htmlFor="email">UserName</label>
+              <label htmlFor="email">UserName (mor_2314)</label>
               <input
                 type="text"
                 id="email"
@@ -46,7 +51,7 @@ const Login = () => {
               />
             </div>
             <div className="inputContainer">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Password (83r5^_)</label>
               <input
                 type="password"
                 id="password"

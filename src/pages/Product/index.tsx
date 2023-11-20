@@ -1,4 +1,4 @@
-import { GetAllCategories, GetAllProducts, GetInCategory } from "@/actions/userActions"
+import { GetAllCategories, GetAllProducts, GetInCategory } from "@/actions/productActions"
 import { useState, useEffect } from "react"
 
 import "./style.css"
@@ -69,7 +69,9 @@ const Product = () => {
         <div className="grid-container">
           {products &&
             products?.map((item, index) => {
-              if (item?.title.includes(search) || item?.description.includes(search))
+              const lowerTitle = item?.title.toLowerCase()
+              const lowerDescription = item?.description.toLowerCase()
+              if (lowerTitle.includes(search) || lowerDescription.includes(search))
                 return (
                   <div className="products" key={index}>
                     <img src={item.image} alt={item?.title} className="product" />

@@ -1,5 +1,10 @@
-import axios, { AxiosResponse } from "axios"
+import axios from "axios"
 import { SetStateAction } from "react"
+
+const API_URL =
+  typeof process !== "undefined"
+    ? process.env.FAKE_STORE_API
+    : undefined || "https://fakestoreapi.com"
 
 export const login = (
   username: string,
@@ -7,7 +12,7 @@ export const login = (
   loginSuccess: { (value: SetStateAction<boolean>): void; (arg0: boolean): any }
 ) =>
   axios
-    .post("https://fakestoreapi.com/auth/login", {
+    .post(`${API_URL}/auth/login`, {
       username: username,
       password: password,
     })
@@ -25,16 +30,18 @@ export const logout = (logOutSuccess: {
   return logOutSuccess(true)
 }
 
-export const GetAllProducts = async () => {
-  const response = await axios.get(`https://fakestoreapi.com/products`)
-  return response.data
-}
-
-export const GetSingleProduct = (id: number) =>
-  axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => res.data)
-
-export const GetAllCategories = () =>
-  axios.get(`https://fakestoreapi.com/products/categories`).then((res) => res.data)
-
-export const GetInCategory = (name: string) =>
-  axios.get(`https://fakestoreapi.com/products/category/${name}`).then((res) => res.data)
+export const register = (
+  userName: string,
+  Email: string,
+  password: string,
+  setRegisterSuccess: { (value: SetStateAction<boolean>): void; (arg0: boolean): any }
+) =>
+  axios
+    .post(`${API_URL}/users`, {
+      username: userName,
+      password: password,
+      email: Email,
+    })
+    .then((res) => {
+      return setRegisterSuccess(true)
+    })
