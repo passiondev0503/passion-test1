@@ -6,9 +6,21 @@ import { GetSingleProduct } from "@/actions/userActions"
 import Rating from "react-rating"
 import IconList from "@/components/Icon"
 
+type product = {
+  image: string
+  category: string
+  title: string
+  price: string
+  rating: {
+    count: number
+    rate: number
+  }
+  description: string
+}
+
 const ProductDetail = () => {
-  const { id } = useParams()
-  const [product, setProduct] = useState()
+  const { id } = useParams<{ id: any }>()
+  const [product, setProduct] = useState<product | null>()
   useEffect(() => {
     const Handle = async () => {
       const data = await GetSingleProduct(id)

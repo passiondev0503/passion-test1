@@ -25,21 +25,16 @@ export const logout = (logOutSuccess: {
   return logOutSuccess(true)
 }
 
-export const GetAllProducts = (setProducts: {
-  (value: SetStateAction<never[]>): void
-  (arg0: AxiosResponse<any, any>): any
-}) => {
-  axios.get(`https://fakestoreapi.com/products`).then((res) => setProducts(res.data))
+export const GetAllProducts = async () => {
+  const response = await axios.get(`https://fakestoreapi.com/products`)
+  return response.data
 }
 
 export const GetSingleProduct = (id: number) =>
   axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => res.data)
 
-export const GetAllCategories = (setCategories: {
-  (value: SetStateAction<never[]>): void
-  (arg0: AxiosResponse<any, any>): any
-}) =>
-  axios.get(`https://fakestoreapi.com/products/categories`).then((res) => setCategories(res.data))
+export const GetAllCategories = () =>
+  axios.get(`https://fakestoreapi.com/products/categories`).then((res) => res.data)
 
 export const GetInCategory = (name: string) =>
   axios.get(`https://fakestoreapi.com/products/category/${name}`).then((res) => res.data)
