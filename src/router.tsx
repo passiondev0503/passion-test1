@@ -14,24 +14,20 @@ const router = createBrowserRouter([
     element: <Navigate to="/login" />,
   },
   {
-    path: "",
-    element: <Login />,
-  },
-  {
     path: "/",
-    element: isAuthenticated ? <Home /> : <Navigate to="/login" />,
+    element: <Home />,
     children: [
       {
         path: "/profile",
-        element: <Profile />,
+        element: isAuthenticated ? <Profile /> : <Navigate to="/login" />,
       },
       {
         path: "/product",
-        element: <Product />,
+        element: isAuthenticated ? <Product /> : <Navigate to="/login" />,
       },
       {
         path: "/product/:id",
-        element: <ProductDetail />,
+        element: isAuthenticated ? <ProductDetail /> : <Navigate to="/login" />,
       },
     ],
   },
