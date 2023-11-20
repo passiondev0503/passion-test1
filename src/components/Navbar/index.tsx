@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
 import { logout } from "@/actions/userActions"
-import "./style.css"
+import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import IconList from "../Icon"
 
+import "./style.css"
+
 const Navbar = () => {
   const navigate = useNavigate()
-  const [logoutsuccess, logOutSuccess] = useState(false)
+  const [logoutsuccess, logOutSuccess] = useState<boolean>(false)
   const url = window.location.pathname
 
   const Logout = (e: any) => {
@@ -15,7 +17,10 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    if (logoutsuccess) navigate("/login")
+    if (logoutsuccess) {
+      navigate("/login")
+      toast.success("Logout Success!")
+    }
   }, [logoutsuccess])
 
   return (

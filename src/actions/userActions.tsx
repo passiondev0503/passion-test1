@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios"
+import axios from "axios"
 import { SetStateAction } from "react"
 
 export const login = (
@@ -24,6 +24,22 @@ export const logout = (logOutSuccess: {
   localStorage.removeItem("userInfo")
   return logOutSuccess(true)
 }
+
+export const register = (
+  userName: string,
+  Email: string,
+  password: string,
+  setRegisterSuccess: { (value: SetStateAction<boolean>): void; (arg0: boolean): any }
+) =>
+  axios
+    .post("https://fakestoreapi.com/users", {
+      username: userName,
+      password: password,
+      email: Email,
+    })
+    .then((res) => {
+      return setRegisterSuccess(true)
+    })
 
 export const GetAllProducts = async () => {
   const response = await axios.get(`https://fakestoreapi.com/products`)
