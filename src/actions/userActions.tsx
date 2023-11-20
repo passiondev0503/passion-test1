@@ -24,3 +24,15 @@ export const logout = (logOutSuccess: {
   localStorage.removeItem("userInfo")
   return logOutSuccess(true)
 }
+
+export const GetAllProducts = () =>
+  axios.get(`https://fakestoreapi.com/products`).then((res) => console.log(res))
+
+export const GetSingleProduct = (id: number) =>
+  axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => console.log(res))
+
+export const GetAllCategories = () =>
+  axios.get(`hthttps://fakestoreapi.com/products/categories`).then((res) => console.log(res))
+
+export const GetInCategory = (name: string) =>
+  axios.get(`https://fakestoreapi.com/products/category/${name}`).then((res) => console.log(res))
