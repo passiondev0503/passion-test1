@@ -1,0 +1,22 @@
+.nav_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pro-content {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.list {
+  padding: 15px 20px;
+  font-size: large;
+  box-sizing: border-box;
+}
+
+.list:hover {
+  background-color: #f4c73e;
+  border-radius: 10px;
+  cursor: pointer;
+}
