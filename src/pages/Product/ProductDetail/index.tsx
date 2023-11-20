@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom"
-
-import "../style.css"
 import { useEffect, useState } from "react"
-import { GetSingleProduct } from "@/actions/userActions"
+import { GetSingleProduct } from "@/actions/productActions"
 import Rating from "react-rating"
 import IconList from "@/components/Icon"
+import "../style.css"
 
 type product = {
   image: string
@@ -36,10 +35,8 @@ const ProductDetail = () => {
           <div style={{ width: "100%" }}>
             <h1>Type: {product?.category}</h1>
             <h3>Name: {product?.title}</h3>
-            {/* <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}> */}
             <h3>Price: ${product?.price}</h3>
             <Rating fractions={0.1} initialRating={product?.rating.rate} readonly />
-            {/* </div> */}
             <h3>Product Count: {product?.rating.count}</h3>
             <h3>Description:</h3>
             <p style={{ fontSize: "20px", display: "flex", marginLeft: "15px" }}>
