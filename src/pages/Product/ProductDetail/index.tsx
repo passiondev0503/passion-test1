@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 
 import "../style.css"
 import { useEffect, useState } from "react"
-import { GetSingleProduct } from "@/actions/userActions"
+import { GetSingleProduct } from "@/actions/productActions"
 import Rating from "react-rating"
 import IconList from "@/components/Icon"
 
