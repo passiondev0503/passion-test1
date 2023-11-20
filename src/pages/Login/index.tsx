@@ -5,7 +5,6 @@ import "./style.css"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import Spinner from "@/components/Spinner"
 
 const Login = () => {
   const [username, setUserName] = useState<string>("")
@@ -17,15 +16,15 @@ const Login = () => {
   const submitHandler = (e: any) => {
     setLoading(true)
     e.preventDefault()
-    login(username, password, loginSuccess)
+    login(username, password, loginSuccess, setLoading)
   }
 
   useEffect(() => {
     if (loginsucess) {
       toast.success("Login Success!")
       navigate("/product")
-      setLoading(false)
     }
+    setLoading(false)
   }, [loginsucess])
 
   return (

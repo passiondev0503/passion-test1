@@ -1,5 +1,6 @@
 import axios from "axios"
-import { SetStateAction } from "react"
+import { Dispatch, SetStateAction } from "react"
+import { toast } from "react-toastify"
 
 const API_URL =
   typeof process !== "undefined"
@@ -9,7 +10,8 @@ const API_URL =
 export const login = (
   username: string,
   password: string,
-  loginSuccess: { (value: SetStateAction<boolean>): void; (arg0: boolean): any }
+  loginSuccess: { (value: SetStateAction<boolean>): void; (arg0: boolean): any },
+  setLoading: Dispatch<SetStateAction<boolean>>
 ) =>
   axios
     .post(`${API_URL}/auth/login`, {
@@ -20,6 +22,10 @@ export const login = (
       const token = res.data.token
       localStorage.setItem("userInfo", JSON.stringify(token))
       return loginSuccess(true)
+    })
+    .catch(() => {
+      toast.error("Login Failed!")
+      setLoading(false)
     })
 
 export const logout = (logOutSuccess: {
@@ -42,6 +48,6 @@ export const register = (
       password: password,
       email: Email,
     })
-    .then((res) => {
+    .then(() => {
       return setRegisterSuccess(true)
     })
